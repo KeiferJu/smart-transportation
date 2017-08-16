@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> {{selectedItem.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<div id="map" class="map"></div>
+<div class="info">
+  <ion-icon name="pin"></ion-icon>
+  <span>京津高速K200处</span>
+</div>
+
+
+<div style="overflow: scroll">
+  <ion-list>
+    <ion-item>
+      <ion-label>车主姓名:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>车牌号:</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>救援类型:</ion-label>
+      <ion-select>
+        <ion-option value="nes" selected="true">拖车</ion-option>
+        <ion-option value="n64">吊车</ion-option>
+        <ion-option value="ps">轮胎抢修</ion-option>
+        <ion-option value="genesis">其它</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>情况描述:</ion-label>
+      <ion-textarea rows="3" cols="20" placeholder="请输入情况简要信息"></ion-textarea>
+    </ion-item>
+
+  </ion-list>
+  <div>
+    <button  class="uploadP" (click)="uploadPicture()">上传图片</button>
+    <button  class="uploadV"(click)="uploadVideo()">上传视频</button>
+  </div>
+  <button ion-button (click)="presentLoading()" style="width: 100%;padding: 0px 5px">确认上报</button>
+</div>
+
