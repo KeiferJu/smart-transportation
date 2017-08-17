@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { ItemDetailsPage } from '../item-details/item-details';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'page-hello-ionic',
@@ -27,12 +28,22 @@ export class HelloIonicPage {
   }
 
     itemTapped(event, item) {
-    this.navCtrl.push(ItemDetailsPage, {
-      item: {
-        title: item,
-        data: '我是数据'
+      if(item == 1){
+        this.navCtrl.push(HomePage, {
+          item: {
+            title: item,
+            data: '我是数据'
+          }
+        });
+      }else{
+        this.navCtrl.push(ItemDetailsPage, {
+          item: {
+            title: item,
+            data: '我是数据'
+          }
+        });
       }
-    });
+
   }
 
 }

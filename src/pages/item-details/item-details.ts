@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+﻿import {Component, OnInit} from '@angular/core';
 
 import {NavController, NavParams} from 'ionic-angular';
 
@@ -12,8 +12,13 @@ import {Platform} from 'ionic-angular';
 import { map } from "rxjs/operator/map";
 import { ShowInfo } from '../show-info/showInfo'
 
+// import { Camera } from '@ionic-native';
+// import { Transfer } from '@ionic-native';
+// import { FileUploadOptions } from '@ionic-native';
 
-declare let cordova:any;
+import { FileUploader } from 'ng2-file-upload'
+
+declare let cordova: any;
 
 @Component({
   selector: 'page-item-details',
@@ -36,7 +41,9 @@ export class ItemDetailsPage implements OnInit {
   uName: any;
   uDesc: any;
   uNum: any;
-
+  public uploader: FileUploader = new FileUploader({ url: '图片上传地址'});
+  selectedImgUrl: any[] = [];//存储已经选择的图片
+  selectedImgLength = 0;
 
   // 构造
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, platform: Platform, geolocation: Geolocation) {

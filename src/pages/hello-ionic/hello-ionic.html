@@ -28,7 +28,7 @@
   <!--// 九宫格-->
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col (click)="itemTapped($event, '1')">
         <img src="./assets/icon/icon_1.png"/>
         <span>导航服务</span>
       </ion-col>

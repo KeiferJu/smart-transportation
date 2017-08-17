@@ -75,8 +75,15 @@
 
     </ion-list>
     <div>
-      <button class="uploadP" (click)="uploadPicture()">上传图片</button>
-      <button class="uploadV" (click)="uploadVideo()">上传视频</button>
+      <button class="uploadP" (click)="takePhoto()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+      <button class="uploadV" (click)="selectPhoto()">
+        <ion-icon name="image"></ion-icon>
+      </button>
+      <ion-item>
+        <img *ngIf="myPhoto" class="img-responsive" [src]="myPhoto"/>
+      </ion-item>
     </div>
 
     <button ion-button (click)="presentLoading()" style="width: 100%;padding: 0px 5px">确认上报</button>
