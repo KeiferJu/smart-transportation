@@ -5,7 +5,7 @@ import { MyApp } from './app.component';
 
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
-import { ListPage } from '../pages/list/list';
+import { ShowInfo } from '../pages/show-info/showInfo';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -16,7 +16,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ShowInfo
   ],
   imports: [
     BrowserModule,
@@ -27,7 +27,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     HelloIonicPage,
     ItemDetailsPage,
-    ListPage
+    ShowInfo
   ],
   providers: [
     StatusBar,

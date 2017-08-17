@@ -11,42 +11,74 @@
 <div id="map" class="map"></div>
 <div class="info">
   <ion-icon name="pin"></ion-icon>
-  <span>京津高速K200处</span>
+  <span>京津高速{{currentPosition}}</span>
 </div>
 
 
-<div style="overflow: scroll">
-  <ion-list>
-    <ion-item>
-      <ion-label>车主姓名:</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
+<!--<div class="list">-->
+  <!--<ion-list>-->
+    <!--<table class="list-tb">-->
+      <!--<tr>-->
+        <!--<td class="list-tb-t">车主姓名:</td>-->
+        <!--<td class="list-tb-b"><input type="text"/>{{uName}}</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="list-tb-t">车牌号:</td>-->
+        <!--<td class="list-tb-b"><input type="text"/>{{uNum}}</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="list-tb-t">救援类型:</td>-->
+        <!--<td class="list-tb-b">-->
+          <!--<select class="list-tb-b-s">-->
+              <!--<option value="type1" selected="true">拖车</option>-->
+              <!--<option value="type2">吊车</option>-->
+              <!--<option value="type3">轮胎抢修</option>-->
+              <!--<option value="type4">其它</option>-->
+          <!--</select>-->
+        <!--</td>-->
+      <!--</tr>-->
+      <!--<tr>-->
+        <!--<td class="list-tb-t">情况描述:</td>-->
+        <!--<td class="list-tb-b"><textarea rows="3" cols="20" placeholder="请输入情况简要信息">{{uDesc}}</textarea></td>-->
+      <!--</tr>-->
+    <!--</table>-->
+  <!--</ion-list>-->
+  <!--<div>-->
+    <!--<button ion-button color="light" round>上传图片</button>-->
+    <!--<button ion-button color="light" round>上传视频</button>-->
+  <!--</div>-->
+  <!--<button ion-button full (click)="presentLoading()">确认上报</button>-->
 
-    <ion-item>
-      <ion-label>车牌号:</ion-label>
-      <ion-input type="text"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>救援类型:</ion-label>
-      <ion-select>
-        <ion-option value="nes" selected="true">拖车</ion-option>
-        <ion-option value="n64">吊车</ion-option>
-        <ion-option value="ps">轮胎抢修</ion-option>
-        <ion-option value="genesis">其它</ion-option>
-      </ion-select>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>情况描述:</ion-label>
-      <ion-textarea rows="3" cols="20" placeholder="请输入情况简要信息"></ion-textarea>
-    </ion-item>
-
-  </ion-list>
   <div>
-    <button  class="uploadP" (click)="uploadPicture()">上传图片</button>
-    <button  class="uploadV"(click)="uploadVideo()">上传视频</button>
+    <ion-list style="margin: 0px 10px 10px 0px;">
+      <ion-item>
+        <ion-label>车主姓名:</ion-label>
+        <ion-input type="text" [(ngModel)]="uName">{{uName}}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>车牌号:</ion-label>
+        <ion-input type="text" [(ngModel)]="uNum">{{uNum}}</ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>救援类型</ion-label>
+        <ion-select interface="popover" [ngModel]="student" (ngModelChange)="student=$event">
+          <ion-option *ngFor="let item of students" [value]='item'>{{item}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>情况描述:</ion-label>
+        <ion-textarea rows="3" cols="20" placeholder="请输入情况简要信息" [(ngModel)]="uDesc">{{uDesc}}</ion-textarea>
+      </ion-item>
+
+    </ion-list>
+    <div>
+      <button class="uploadP" (click)="uploadPicture()">上传图片</button>
+      <button class="uploadV" (click)="uploadVideo()">上传视频</button>
+    </div>
+
+    <button ion-button (click)="presentLoading()" style="width: 100%;padding: 0px 5px">确认上报</button>
   </div>
-  <button ion-button (click)="presentLoading()" style="width: 100%;padding: 0px 5px">确认上报</button>
-</div>
 

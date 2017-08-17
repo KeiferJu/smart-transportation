@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>救援状态查询</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="status-info">
+    <div class="status-info-body">
+      <ion-grid>
+        <ion-row>
+          <ion-col style="font-size: 16px;font-weight: bold">状态</ion-col>
+          <ion-col style="font-size: 16px;font-weight: bold">预计时间</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>{{info.status}}</ion-col>
+          <ion-col>{{info.time}}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+
+  <div>
+    <button ion-button class="call">拨打紧急电话</button>
+  </div>
+
+
+  <div class="list">
+    <ion-list>
+      <h2 class="list-info">车主信息</h2>
+
+      <table class="list-tb">
+        <tr *ngFor="let v of info.data">
+          <td class="list-tb-t">{{v.title}}:</td>
+
+          <td class="list-tb-b">{{v.body}}</td>
+        </tr>
+        <tr>
+          <td class="list-tb-t">现场图片:</td>
+
+          <td class="list-img-p" *ngFor="let l of info.img">
+            <img src={{l.url}}>
+          </td>
+        </tr>
+
+      </table>
+    </ion-list>
+  </div>
+</ion-content>
